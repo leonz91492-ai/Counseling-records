@@ -15,8 +15,8 @@
   <!-- 引入 Recharts 必須的依賴套件 -->
   <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
   
-  <!-- 引入 Babel (用於在瀏覽器內編譯 JSX) -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- 引入 Babel (強制鎖定在穩定的 7.23.9 版本，避免最新版 Bug 導致畫面空白) -->
+  <script src="https://unpkg.com/@babel/standalone@7.23.9/babel.min.js"></script>
   
   <!-- 引入 Recharts 圖表庫 (指定穩定版本與路徑) -->
   <script src="https://unpkg.com/recharts@2.1.12/umd/Recharts.js"></script>
@@ -25,8 +25,8 @@
   <!-- React 應用的掛載點 -->
   <div id="root"></div>
 
-  <!-- 應用程式邏輯 -->
-  <script type="text/babel">
+  <!-- 應用程式邏輯 (加上 data-presets 確保編譯穩定) -->
+  <script type="text/babel" data-presets="react,env">
     const { useState, useMemo, useEffect } = React;
     const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip: RechartsTooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } = window.Recharts;
 
